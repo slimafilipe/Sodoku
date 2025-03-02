@@ -1,16 +1,18 @@
 package dev.filipe.ui.custom.input;
 
-import com.sun.source.tree.NewArrayTree;
 import dev.filipe.model.Space;
+import dev.filipe.service.EventEnum;
+import dev.filipe.service.EventListener;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
 
+import static dev.filipe.service.EventEnum.CLEAR_SPACE;
 import static java.awt.Font.PLAIN;
 
-public class NumberText extends JTextField {
+public class NumberText extends JTextField implements EventListener {
 
     private final Space space;
 
@@ -55,5 +57,12 @@ public class NumberText extends JTextField {
             }
 
         });
+    }
+
+    @Override
+    public void update(EventEnum eventType) {
+        if (eventType.equals(CLEAR_SPACE) && (this.isEnabled())){
+            this.setText("");
+        }
     }
 }
