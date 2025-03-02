@@ -2,7 +2,6 @@ package dev.filipe;
 
 import dev.filipe.model.Board;
 import dev.filipe.model.Space;
-import dev.filipe.util.BoardTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
